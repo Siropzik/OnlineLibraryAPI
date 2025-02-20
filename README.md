@@ -43,7 +43,7 @@ A REST API for an online library that allows you to manage books, favorites, and
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/YourGithubName/OnlineLibraryAPI.git
+   git clone https://github.com/Siropzik/OnlineLibraryAPI.git
    cd OnlineLibraryAPI
    ```
 
