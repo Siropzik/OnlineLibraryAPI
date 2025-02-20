@@ -1,0 +1,50 @@
+@startuml
+hide circle
+skinparam linetype ortho
+
+class User {
+  - Id : int
+  - Email : string
+  - PasswordHash : string
+  - Role : string
+  + List<Favorite> Favorites
+}
+
+class Book {
+  - Id : int
+  - Title : string
+  + List<Author> Authors
+  + List<Genre> Genres
+}
+
+class Author {
+  - Id : int
+  - Name : string
+  + List<Book> Books
+}
+
+class Genre {
+  - Id : int
+  - Name : string
+  + List<Book> Books
+}
+
+class Favorite {
+  - UserId : int
+  - BookId : int
+  + User User
+  + Book Book
+}
+
+User "1" -- "0..*" Favorite
+Book "1" -- "0..*" Favorite
+Book "1" -- "0..*" Author
+Book "1" -- "0..*" Genre
+@enduml
+
+
+(User, Book, Author, Genre, Favorite Ц класи C#.
+User збер≥гаЇ список Favorites.
+Book збер≥гаЇ списки Authors та Genres.
+Author ≥ Genre м≥ст€ть List<Book> (багато хто до багатьох).
+Favorite Ц пром≥жний клас дл€ зв'€зку Ђбагато до багатьохї м≥ж User та Book.)

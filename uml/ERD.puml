@@ -1,0 +1,46 @@
+@startuml
+hide circle
+skinparam linetype ortho
+
+entity "User" {
+  *Id : int
+  --
+  *Email : string
+  *PasswordHash : string
+  *Role : string
+}
+
+entity "Book" {
+  *Id : int
+  --
+  *Title : string
+}
+
+entity "Author" {
+  *Id : int
+  --
+  *Name : string
+}
+
+entity "Genre" {
+  *Id : int
+  --
+  *Name : string
+}
+
+entity "Favorite" {
+  *UserId : int
+  *BookId : int
+}
+
+User ||--o{ Favorite
+Book ||--o{ Favorite
+Book }--o{ Author
+Book }--o{ Genre
+@enduml
+
+
+(User, Book, Author, Genre, Favorite Ц таблиц≥ у Ѕƒ.
+User може мати багато вибраних книг (Favorite).
+Book може бути обраний у багатьох користувач≥в (Favorite).
+Book зв'€зуЇтьс€ з Author ≥ Genre за схемою Ђбагато хто до багатьохї.)
